@@ -1,0 +1,15 @@
+
+// Define the Forward zone
+// My domain: ttc.local
+// Forward file called forward.ttc.local
+zone "ttc.local" IN { 
+	type master;
+	// Path of Forward file
+	file "/etc/bind/totatca/forward.ttc.local";
+};
+// Define the Reverse zone
+// Reverse file called: reverse.ttc.local
+zone "1.168.192.in-addr.arpa" IN {
+        type master;
+        file "/etc/bind/totatca/reverse.ttc.local";
+};
