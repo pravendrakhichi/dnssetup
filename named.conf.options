@@ -1,0 +1,22 @@
+
+
+// Define LAN network
+acl MYLAN {
+	192.168.1.0/24;
+};
+options {
+	// Default directory
+	directory "/var/cache/bind";
+	// Allow queries from localhost and LAN network
+	allow-query {
+		localhost;
+		MYLAN;
+	};
+	// Use Google DNS as a forwarder
+	forwarders{
+		8.8.8.8 ;
+		8.8.4.4 ;
+	};
+	// Allow recursive queries
+	recursion yes;
+};
