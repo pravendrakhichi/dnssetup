@@ -1,0 +1,22 @@
+
+$TTL    604800
+; SOA record with MNAME and RNAME updated
+@       IN      SOA     ttc.local. root.ttc.local. (
+                              3         ; Serial Note: increment after each change
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; Name server record 
+@       IN      NS      dns-1.ttc.local.
+; A record for name server
+dns-1	IN      A       192.168.1.8
+www	IN	A	192.168.1.21
+mail	IN	A	192.168.1.15
+
+; Mail handler or MX record for the domain ttc.local
+ttc.local.    IN     MX   10   mail.ttc.local.
+
+; A record for clients
+client1      IN      A       192.168.1.111
+client2      IN      A       192.168.1.112
