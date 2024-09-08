@@ -1,12 +1,12 @@
 @echo off
-powershell -command "Invoke-WebRequest -Uri 'https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.4+7/openlogic-openjdk-21.0.4+7-windows-x64.zip' -OutFile 'jdk17.zip'"
-powershell -command "Expand-Archive -Path 'jdk17.zip' -DestinationPath 'java'"
+powershell -command "Invoke-WebRequest -Uri 'https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.4+7/openlogic-openjdk-21.0.4+7-windows-x64.zip' -OutFile 'jdk21.zip'"
+powershell -command "Expand-Archive -Path 'jdk21.zip' -DestinationPath 'java'"
 cd java
 for /d %i in (*) do ren %i "jdk21" 
 cd ..
-for %%A in ("~dp0.\java\jdk17") Do set "_JAVA17=%%~fA"
-set JAVA_HOME=%_JAVA17%
-if "%~1" == "java-17" set JAVA_HOME=%_JAVA17%
+for %%A in ("~dp0.\java\jdk21") Do set "_JAVA21=%%~fA"
+set JAVA_HOME=%_JAVA21%
+if "%~1" == "java-21" set JAVA_HOME=%_JAVA21%
 if "%~2" == "perm" (
   setx JAVA_HOME "%JAVA_HOME%" /M
 )
