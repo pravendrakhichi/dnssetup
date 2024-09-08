@@ -1,5 +1,5 @@
 @echo off
-setlocal
+
 powershell -command "Invoke-WebRequest -Uri 'https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.4+7/openlogic-openjdk-21.0.4+7-windows-x64.zip' -OutFile 'jdk21.zip'"
 powershell -command "Expand-Archive -Path 'jdk21.zip' -DestinationPath 'java'"
 cd java
@@ -31,3 +31,8 @@ if "%~2" == "perm" (
 )
 set Path=%M2%;%Path%
 echo Maven:%M2% activated.
+
+for /f "tokens=2 delims=:" %%i in ('ipconfig ^| findstr /r /C:"IPv4 Address"') do (
+	set "ipAdress=%%i"
+)
+echo ip is::%ipAdress%
