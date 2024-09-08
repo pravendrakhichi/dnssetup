@@ -1,6 +1,6 @@
 @echo off
 powershell -command "Invoke-WebRequest -Uri 'https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.4+7/openlogic-openjdk-21.0.4+7-windows-x64.zip' -OutFile 'jdk17.zip'"
-powershell -command "Expand-Archive -Path 'jdk.zip' -DestinationPath 'java'"
+powershell -command "Expand-Archive -Path 'jdk17.zip' -DestinationPath 'java'"
 cd java
 for /d %i in (*) do ren %i "jdk21" 
 cd ..
