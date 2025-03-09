@@ -89,18 +89,23 @@ sudo ufw enable
    ```sh
    sudo systemctl enable certbot.timer
    ```
-```
-    Note if are trying to install your own ssl with key you might wanna create a group and add that group to your user like
-    Try adding postgres user to the group ssl-cert
-    *StackOverFlow fix* :(
-    sudo grouadd ssl-cert 
-    sudo gpasswd -a ubuntu ssl-cert
-    Then fix ownership and mode
-    
-    sudo chown root:ssl-cert  /etc/ssl/private/ssl-cert-snakeoil.key
-    sudo chmod 740 /etc/ssl/private/ssl-cert-snakeoil.key
 
-```
+   *Note if are trying to install your own ssl with key you might wanna create a group and add that group to your user like
+   Try adding postgres user to the group ssl-cert
+   StackOverFlow fix* :(
+   ```sh
+   sudo grouadd ssl-cert 
+   sudo gpasswd -a ubuntu ssl-cert
+   ```
+    
+   *Then fix ownership and mode*
+   ```sh
+   sudo chown root:ssl-cert  /etc/ssl/private/ssl-cert-snakeoil.key
+   sudo chmod 740 /etc/ssl/private/ssl-cert-snakeoil.key
+   sudo su - ubuntu
+   ```
+      
+
 ## 6. Verify Setup
 1. Run:
    ```sh
